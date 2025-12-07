@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Zenk Health Compliance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-wrapper">
+            <div class="logo-section">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                        <path d="M25 5L45 15V35L25 45L5 35V15L25 5Z" fill="#0066FF" stroke="#0066FF" stroke-width="2"/>
+                        <path d="M25 15L35 25L25 35L15 25L25 15Z" fill="white"/>
+                    </svg>
+                </div>
+                <h1>Zenk</h1>
+                <p class="subtitle">Health Compliance Management</p>
+            </div>
+
+            <form class="auth-form" id="signupForm">
+                <h2>Create Your Account</h2>
+                <p class="form-description">Join thousands of healthcare professionals</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization" placeholder="Your healthcare facility" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Min. 8 characters" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="terms" required>
+                        <span>I agree to the <a href="index.html" class="link">Sign in</a>Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <button type="button" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M18.17 8.36H10V12H14.96C14.37 14.66 12.06 16 10 16C7.24 16 5 13.76 5 11C5 8.24 7.24 6 10 6C11.27 6 12.41 6.47 13.29 7.24L16.08 4.45C14.45 2.97 12.32 2 10 2C5.03 2 1 6.03 1 11C1 15.97 5.03 20 10 20C14.97 20 19 15.97 19 11C19 10.1 18.9 9.23 18.71 8.39L18.17 8.36Z" fill="#4285F4"/>
+                    </svg>
+                    Sign up with Google
+                </button>
+
+                <p class="form-footer">
+                    Already have an account? <a href="index.html" class="link">Sign in</a>
+                </p>
+            </form>
+        </div>
+
+        <div class="info-section">
+            <div class="info-content">
+                <h2>Why Healthcare Professionals Choose Zenk</h2>
+                <ul class="feature-list">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Enterprise-grade Security</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Compliance Made Simple</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>24/7 Expert Support</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Free 30-day Trial</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script src="signup.js"></script>
+</body>
+</html>
