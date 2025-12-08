@@ -33,24 +33,24 @@ app.use("/api", (req, res, next) => {
     next(); // continue to API routes
 });
 // STATIC FILES but disable auto index.html
-app.use(express.static(path.join(__dirname, "public"), { login: false }));
+
 
 // Landing Page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Login Page
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "login.html"));
+    res.sendFile(path.join(__dirname, "login.html"));
 });
 
 // Signup Page
 app.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "signup.html"));
+    res.sendFile(path.join(__dirname, "signup.html"));
 });
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 // =============================
 // DB CONNECTION
 // =============================
