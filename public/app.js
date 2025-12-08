@@ -1,4 +1,4 @@
-console.log("app.js loaded");
+
 
 // ===============================
 // GLOBAL CONFIG
