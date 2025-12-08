@@ -3,7 +3,7 @@ console.log("app.js loaded");
 // ===============================
 // GLOBAL CONFIG
 // ===============================
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "https://zencomply-backend.onrender.com/api";;
 let currentUser = null;
 
 // INCIDENTS

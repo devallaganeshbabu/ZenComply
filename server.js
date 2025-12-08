@@ -29,11 +29,11 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 // FRONTEND ROUTES
 // =============================
 // STATIC FILES but disable auto index.html
-app.use(express.static(path.join(__dirname, "public"), { index: false }));
+app.use(express.static(path.join(__dirname, "public"), { login: false }));
 
 // Landing Page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "landing.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Login Page
