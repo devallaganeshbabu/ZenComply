@@ -28,6 +28,10 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 // =============================
 // FRONTEND ROUTES
 // =============================
+// Prevent frontend from hijacking API routes
+app.use("/api", (req, res, next) => {
+    next(); // continue to API routes
+});
 // STATIC FILES but disable auto index.html
 app.use(express.static(path.join(__dirname, "public"), { login: false }));
 
@@ -45,6 +49,8 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
+
+app.use(express.static(path.join(__dirname, "public")));
 // =============================
 // DB CONNECTION
 // =============================
