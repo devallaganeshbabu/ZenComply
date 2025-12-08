@@ -1,9 +1,9 @@
-const API_BASE_URL = "https://zencomply.onrender.com";
+const API_BASE_URL = "https://zencomply.onrender/api.com/api";
 
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Read fields EXACTLY as your HTML defines them
+    // Correct fields from your HTML
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -11,13 +11,13 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     const password = document.getElementById("password").value.trim();
     const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-    // Validate passwords match
+    // Validate password match
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
-    // Backend expects: username, email, password, role(optional)
+    // Combine name for backend compatibility
     const username = `${firstName} ${lastName}`;
 
     try {
@@ -28,7 +28,6 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
                 username,
                 email,
                 password,
-                role: "User",
                 organization
             })
         });
@@ -45,6 +44,6 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
 
     } catch (error) {
         console.error("Signup error:", error);
-        alert("Error connecting to the server");
+        alert("Error connecting to server");
     }
 });
