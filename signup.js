@@ -1,17 +1,36 @@
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "https://zencomply-backend.onrender.com/api";
 
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const username = document.getElementById("username").value.trim();
+    // Read fields EXACTLY as your HTML defines them
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("email").value.trim();
+    const organization = document.getElementById("organization").value.trim();
     const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    // Backend expects: username, email, password, role(optional)
+    const username = `${firstName} ${lastName}`;
 
     try {
         const response = await fetch(`${API_BASE_URL}/auth/signup`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, password })
+            body: JSON.stringify({
+                username,
+                email,
+                password,
+                role: "User",
+                organization
+            })
         });
 
         const data = await response.json();
@@ -22,10 +41,10 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
         }
 
         alert("Account created! Redirecting to login...");
-        window.location.href = "index.html";
+        window.location.href = "login.html";
 
     } catch (error) {
         console.error("Signup error:", error);
-        alert("Error connecting to server");
+        alert("Error connecting to the server");
     }
 });
