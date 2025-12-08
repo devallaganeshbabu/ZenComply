@@ -3,734 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Zenk Health Compliance</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ZenComply - Healthcare Compliance Made Simple</title>
+    <link rel="stylesheet" href="landing.css">
 </head>
-
 <body>
-
-<!-- TOAST -->
-<div id="toast"></div>
-
-<!-- ================= LOGIN SCREEN ================= -->
-<div id="loginScreen" class="login-container">
-
-    <div class="form-wrapper">
-        <div class="logo-section">
-            <div class="logo">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
                     <path d="M25 5L45 15V35L25 45L5 35V15L25 5Z" fill="#0066FF"/>
                     <path d="M25 15L35 25L25 35L15 25L25 15Z" fill="white"/>
                 </svg>
+                <span>ZenComply</span>
             </div>
-            <h1>Zenk</h1>
-            <p class="subtitle">Health Compliance Management</p>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#compliance">Compliance</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Pricing</a>
+                <a href="index.html" class="nav-btn-secondary">Sign In</a>
+                <a href="signup.html" class="nav-btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
 
-        <form id="loginForm" class="auth-form">
-            <h2>Welcome Back</h2>
-            <p class="form-description">Sign in to access your compliance dashboard</p>
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+        <section class="hero">
 
-            <div class="form-group">
-                <label for="username">Username</label>
-                
-                <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <!-- 🌈 FULL Background Animation (correct position) -->
+            <div class="hero-animated-bg">
+                <div class="blob blob1"></div>
+                <div class="blob blob2"></div>
+                <div class="blob blob3"></div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-              
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-
-            <div class="form-options">
-                <label class="checkbox-container">
-                    <input type="checkbox" name="remember">
-                    <span>Remember me</span>
-                </label>
-                <a href="#" class="link">Forgot password?</a>
-            </div>
-
-
-                <button type="submit" class="btn-primary">Sign In</button>
-
-                <div class="divider">
-                    <span>or</span>
-                </div>
-
-                <button type="button" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M18.17 8.36H10V12H14.96C14.37 14.66 12.06 16 10 16C7.24 16 5 13.76 5 11C5 8.24 7.24 6 10 6C11.27 6 12.41 6.47 13.29 7.24L16.08 4.45C14.45 2.97 12.32 2 10 2C5.03 2 1 6.03 1 11C1 15.97 5.03 20 10 20C14.97 20 19 15.97 19 11C19 10.1 18.9 9.23 18.71 8.39L18.17 8.36Z" fill="#4285F4"/>
-                    </svg>
-                    Continue with Google
-                </button>
-
-                <p class="form-footer">
-                    Don't have an account? <a href="signup.html" class="link">Sign up</a>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="fade-in-up">Healthcare Compliance</span>
+                    <span class="fade-in-up delay-1">Made Simple</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up delay-2">
+                    Streamline your healthcare compliance management with intelligent automation, 
+                    real-time monitoring, and HIPAA-compliant documentation.
                 </p>
-            </form>
+                <div class="hero-buttons fade-in-up delay-3">
+                    <a href="signup.html" class="btn-primary-large">Start Free Trial</a>
+                    <a href="#demo" class="btn-secondary-large">Watch Demo</a>
+                </div>
+                <p class="hero-note fade-in-up delay-4">
+                    No credit card required • 30-day free trial • Cancel anytime
+                </p>
+            </div>
+
+           
+            </div>    
+
+        </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="10000">0</div>
+                <div class="stat-label">Healthcare Facilities</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="99">0</div>
+                <div class="stat-label">Uptime Guarantee</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Hour Support</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="50000">0</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Everything You Need</h2>
+            <p class="section-subtitle">Powerful features designed for healthcare compliance excellence</p>
         </div>
 
-        <div class="info-section">
-            <div class="info-content">
-                <h2>Streamline Your Health Compliance</h2>
-                <ul class="feature-list">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📘</div>
+                <h3>HIPAA Compliance</h3>
+                <p>Complete HIPAA compliance documentation and monitoring with automated alerts and real-time tracking.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚠️</div>
+                <h3>Incident Management</h3>
+                <p>Track, manage, and report incidents with comprehensive workflows and automated notifications.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Audit Automation</h3>
+                <p>Schedule and conduct audits with intelligent checklists and automatic report generation.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Policy Management</h3>
+                <p>Version control, review tracking, and staff acknowledgment for all your policies and procedures.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Risk Assessment</h3>
+                <p>Identify, assess, and mitigate risks with visual heatmaps and comprehensive risk registers.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Advanced Analytics</h3>
+                <p>Gain insights with customizable dashboards, reports, and compliance score tracking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Standards Section -->
+    <section class="compliance-section" id="compliance">
+        <div class="compliance-content">
+            <div class="compliance-text">
+                <h2>Built for Healthcare Standards</h2>
+                <p>ZenComply is designed to meet the most rigorous healthcare compliance standards, ensuring your facility stays ahead of regulations.</p>
+                <ul class="compliance-list">
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
-                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="#0066FF" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>HIPAA Compliant Documentation</span>
+                        <span>HIPAA & HITECH Compliance</span>
                     </li>
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
-                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="#0066FF" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Real-time Compliance Monitoring</span>
+                        <span>HIQA Standards Alignment</span>
                     </li>
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
-                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="#0066FF" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Automated Audit Reports</span>
+                        <span>CQC Regulations</span>
                     </li>
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
-                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="#0066FF" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Secure Data Encryption</span>
+                        <span>ISO 27001 Security Standards</span>
                     </li>
                 </ul>
             </div>
-        </div>
-     </div> 
-<!-- ======================= MAIN DASHBOARD ======================= -->
-<div id="mainDashboard" class="dashboard-container" style="display:none;">
-
-    <!-- SIDEBAR -->
- <!-- SIDEBAR -->
-<aside class="sidebar">
-    <div class="sidebar-header">
-        <div class="logo-small">Z</div>
-        <h3 class="sidebar-title">ZeNKComply</h3>
-    </div>
-
-    <nav class="sidebar-nav">
-
-        <div class="nav-item active" data-page="dashboardContent">
-            <span>📊</span> Dashboard
-        </div>
-
-        <div class="nav-item" data-page="complianceContent">
-            <span>📘</span> Compliance & Standards
-        </div>
-
-        <div class="nav-item" data-page="incidentsContent">
-            <span>⚠️</span> Incidents & Notifications
-        </div>
-
-        <div class="nav-item" data-page="auditsContent">
-            <span>📝</span> Audits & Checks
-        </div>
-
-        <div class="nav-item" data-page="tasksContent">
-            <span>✔️</span> Tasks & Actions
-        </div>
-
-        <div class="nav-item" data-page="policiesContent">
-            <span>📄</span> Policy & Document Control
-        </div>
-
-        <div class="nav-item" data-page="riskContent">
-            <span>⚡</span> Risk Register
-        </div>
-
-        <div class="nav-item" data-page="safetyContent">
-            <span>🚨</span> Safety Alerts & Learning
-        </div>
-
-        <div class="nav-item" data-page="visitsContent">
-            <span>🏥</span> Provider Visits / Annual Reviews
-        </div>
-
-        <div class="nav-item" data-page="staffContent">
-            <span>👥</span> Staff Management
-        </div>
-
-        <div class="nav-item" data-page="complaintsContent">
-            <span>💬</span> Complaints & Feedback
-        </div>
-
-        <div class="nav-item" data-page="reportsContent">
-            <span>📊</span> Reports & Analytics
-        </div>
-
-        <div class="nav-item" data-page="activityContent">
-            <span>📜</span> Activity Log
-        </div>
-
-        <div class="nav-item" data-page="settingsContent">
-            <span>⚙️</span> Settings / Admin
-        </div>
-
-        <div class="nav-item" data-page="helpContent">
-            <span>❓</span> Help / Support
-        </div>
-
-    </nav>
-</aside>
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-        
-
-        <!-- TOP HEADER -->
-        <header class="top-header">
-    <div class="breadcrumb">
-        <span>Home</span> › <span id="currentPage">Dashboard</span>
-    </div>
-
-    <div class="user-menu" id="userMenu">
-        <img id="userAvatar" class="avatar" src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
-        <span id="userNameDisplay">User</span>
-
-        <!-- FIXED PROFILE DROPDOWN -->
-        <div class="profile-dropdown hidden" id="userDropdown">
-
-            <!-- HEADER -->
-            <div class="profile-header">
-                <img id="dropdownAvatar" class="profile-avatar">
-                <div>
-                    <div id="dropdownName" class="profile-name"></div>
-                    <div id="dropdownEmail" class="profile-email"></div>
+            <div class="compliance-visual">
+                <div class="compliance-badge badge-1">
+                    <div class="badge-icon">🔒</div>
+                    <div class="badge-text">HIPAA Certified</div>
                 </div>
-            </div>
-
-            <!-- MENU ITEMS -->
-            <div class="profile-menu">
-                <button class="menu-item">View Profile</button>
-                <button class="menu-item">Settings</button>
-                <button class="menu-item logout" id="logoutMenuBtn">Logout</button>
-            </div>
-
-            </div>
-        </div>
-    </header>
-        <!-- DASHBOARD -->
-<!-- DASHBOARD -->
-<div id="dashboardContent" class="content-area">
-    <h2>Dashboard Overview</h2>
-
-    <!-- Top Alert Banner -->
-    <div class="alert-banner">
-        <div>
-            <strong>Heads up:</strong> 2 policies are due in 14 days, and 1 HIQA notification is due in 24 hours.
-        </div>
-        <button class="btn-secondary">View</button>
-    </div>
-
-    <!-- Summary Metrics -->
-    <div class="summary-grid">
-        <div class="summary-card">
-            <h3>Total Incidents</h3>
-            <div class="card-value" id="cardIncidents">0</div>
-        </div>
-
-        <div class="summary-card">
-            <h3>Open Tasks</h3>
-            <div class="card-value" id="cardTasks">0</div>
-        </div>
-
-        <div class="summary-card">
-            <h3>Active Staff</h3>
-            <div class="card-value" id="cardStaff">0</div>
-        </div>
-
-        <div class="summary-card">
-            <h3>Compliance Score</h3>
-            <div class="card-value">92%</div>
-        </div>
-    </div>
-
-    <!-- Two Column Panels -->
-    <div class="grid-2">
-
-        <!-- PANEL: Compliance Score -->
-        <div class="panel">
-            <h3>Overall Compliance Score</h3>
-
-            <div class="score-circle">
-                <span class="score-value">86%</span>
-            </div>
-        </div>
-
-        <!-- PANEL: Open Actions -->
-        <div class="panel">
-            <h3>Open Actions</h3>
-
-            <div class="list-item">
-                <div>
-                    Replace expired fire extinguishers<br>
-                    <small>Due 2025-10-05</small>
+                <div class="compliance-badge badge-2">
+                    <div class="badge-icon">✓</div>
+                    <div class="badge-text">HIQA Compliant</div>
                 </div>
-                <span class="badge red">Attention Needed</span>
-            </div>
-
-            <div class="list-item">
-                <div>
-                    Update governance policy index<br>
-                    <small>Due 2025-10-15</small>
-                </div>
-                <span class="badge orange">In Progress</span>
-            </div>
-        </div>
-
-    </div>
-
-    <!--UPCOMING AUIDTS-->
-    <div class="panel">
-    <h3>Upcoming Audits</h3>
-    <div id="upcomingAuditsList"></div>
-    </div>
-</div>
-<!-- INCIDENTS PAGE -->
-<div id="incidentsContent" class="content-area" style="display:none;">
-    <h2>Incidents & Notifications</h2>
-
-    <!-- Top Bar -->
-    <div class="incidents-top-row">
-        <button class="btn-primary" id="newIncidentBtn">+ New Incident</button>
-
-        <div class="filters">
-            <select id="filterType">
-                <option value="all">All Types</option>
-                <option value="fall">Fall</option>
-                <option value="infectious">Infectious</option>
-                <option value="medication">Medication Error</option>
-            </select>
-
-            <select id="filterSeverity">
-                <option value="all">All Severity</option>
-                <option value="low">Low</option>
-                <option value="moderate">Moderate</option>
-                <option value="serious">Serious</option>
-            </select>
-
-            <select id="filterStatus">
-                <option value="all">Status: Any</option>
-                <option value="open">Open</option>
-                <option value="pending">Pending</option>
-                <option value="closed">Closed</option>
-            </select>
-        </div>
-
-        <button class="export-btn" id="exportCsvBtn">Export CSV</button>
-    </div>
-
-    <!-- INCIDENTS TABLE -->
-    <div class="incident-table-wrapper">
-        <table class="incidents-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Resident</th>
-                    <th>Incident Type</th>
-                    <th>Severity</th>
-                    <th>Status</th>
-                    <th>Reported By</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-
-            <tbody id="incidentsTableBody">
-                <!-- JS inserts rows here -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
-<!-- TASKS PAGE -->
-<div id="tasksContent" class="content-area" style="display:none;">
-    <h2>Tasks & Actions</h2>
-
-    <!-- FILTER TABS -->
-    <div class="task-tabs">
-        <button class="task-tab active" data-filter="my">My Tasks</button>
-        <button class="task-tab" data-filter="all">All Actions</button>
-        <button class="task-tab" data-filter="new">New Action</button>
-        <button class="task-tab" data-filter="upcoming">Overdue & Upcoming</button>
-        <button class="task-tab" data-filter="closed">Closed / Verified</button>
-        <button class="task-tab" data-filter="analytics">Action Analytics</button>
-    </div>
-
-    <!-- NEW TASK BUTTON (Separate) -->
-    <button id="newTaskBtn" class="btn-primary" style="margin:10px 0;">
-        + New Task
-    </button>
-
-    <!-- TASK LIST -->
-    <div id="tasksList"></div>
-</div>
-<!-- STAFF PAGE -->
-<div id="staffContent" class="content-area" style="display:none;">
-    <h2>Staff Management</h2>
-    <button class="btn-primary" id="newStaffBtn">+ Add Staff</button>
-    <div id="staffList"></div>
-</div>
-
-<!-- AUDITS PAGE -->
-<div id="auditsContent" class="content-area">
-
-    <h2>Audits & Checks</h2>
-
-    <button id="newAuditBtn" class="btn-primary" style="margin-bottom:15px;">
-        + New Audit
-    </button>
-
-    <div id="auditsList"></div>
-</div>
-
-<!-- COMPLIANCE PAGE -->
-<div id="complianceContent" class="content-area" style="display:none;">
-
-    <h2>Compliance & Standards → Overview Dashboard</h2>
-
-    <div class="compliance-grid">
-
-        <!-- CARD 1: OVERALL COMPLIANCE -->
-        <div class="card">
-            <h3>Overall Compliance</h3>
-            <div class="circle">
-                <span id="overallComplianceValue">--%</span>
-            </div>
-        </div>
-
-        <!-- CARD 2: HIQA THEMES -->
-        <div class="card">
-            <h3>By HIQA Theme</h3>
-            <div id="hiqaContainer"></div>
-        </div>
-
-        <!-- CARD 3: SUMMARY -->
-        <div class="card">
-            <h3>Summary</h3>
-            <div class="summary-boxes">
-                <div class="summary-item green">
-                    <div class="summary-number" id="summaryCompliant">0</div>
-                    <div class="summary-label">Compliant</div>
-                </div>
-                <div class="summary-item yellow">
-                    <div class="summary-number" id="summaryPartial">0</div>
-                    <div class="summary-label">Partial</div>
-                </div>
-                <div class="summary-item red">
-                    <div class="summary-number" id="summaryNoncompliant">0</div>
-                    <div class="summary-label">Non-Compliant</div>
+                <div class="compliance-badge badge-3">
+                    <div class="badge-icon">🛡️</div>
+                    <div class="badge-text">ISO 27001</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- CARD 4: NEXT REVIEWS -->
-        <div class="card">
-            <h3>Next Reviews Due</h3>
-            <ul id="reviewsList"></ul>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2 class="section-title">Trusted by Healthcare Professionals</h2>
+            <p class="section-subtitle">See what our customers have to say</p>
         </div>
 
-    </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"ZenComply transformed our compliance management. We've reduced audit preparation time by 70% and improved our compliance scores significantly."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DM</div>
+                    <div class="author-info">
+                        <strong>Dr. Maria Rodriguez</strong>
+                        <span>Chief Medical Officer, St. Mary's Hospital</span>
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The incident tracking and automated reporting features are game-changers. Our team can focus on patient care while staying compliant."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <strong>James Chen</strong>
+                        <span>Compliance Director, HealthCare Plus</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- RISK REGISTER PAGE -->
-    <div id="riskContent" class="content-area" style="display:none;">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Implementation was seamless, and the support team is exceptional. ZenComply has become an essential part of our daily operations."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <strong>Sarah O'Connor</strong>
+                        <span>Quality Manager, Riverside Care Facility</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <h2>Risk Register</h2>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Compliance Management?</h2>
+            <p>Join thousands of healthcare professionals who trust ZenComply</p>
+            <div class="cta-buttons">
+                <a href="signup.html" class="btn-primary-large">Start Free Trial</a>
+                <a href="#contact" class="btn-secondary-large">Contact Sales</a>
+            </div>
+        </div>
+    </section>
 
-        <div class="risk-tabs">
-            <button class="risk-tab active" data-tab="active">Active Risks</button>
-            <button class="risk-tab" data-tab="new">New Risk</button>
-            <button class="risk-tab" data-tab="closed">Closed Risks</button>
-            <button class="risk-tab" data-tab="categories">Risk Categories</button>
-            <button class="risk-tab" data-tab="heatmap">Risk Heatmap</button>
-            <button class="risk-tab" data-tab="review">Risk Review Log</button>
-            <button class="risk-tab" data-tab="reports">Reports</button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                        <path d="M25 5L45 15V35L25 45L5 35V15L25 5Z" fill="#0066FF"/>
+                        <path d="M25 15L35 25L25 35L15 25L25 15Z" fill="white"/>
+                    </svg>
+                    <span>ZenComply</span>
+                </div>
+                <p>Healthcare compliance management made simple and secure.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo">Demo</a>
+                <a href="#integrations">Integrations</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#about">About Us</a>
+                <a href="#careers">Careers</a>
+                <a href="#contact">Contact</a>
+                <a href="#blog">Blog</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#security">Security</a>
+                <a href="#compliance">Compliance</a>
+            </div>
         </div>
 
-        <!-- PANELS -->
-        <div id="riskPanel-active" class="risk-panel">
-            <h3>Active Risks</h3>
-            <div id="riskList"></div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ZenComply. All rights reserved.</p>
         </div>
+    </footer>
 
-        <div id="riskPanel-new" class="risk-panel hidden">
-            <h3>New Risk</h3>
-            <button class="btn-primary" onclick="openRiskModal()">➕ Add Risk</button>
-        </div>
-
-        <div id="riskPanel-closed" class="risk-panel hidden">
-            <h3>Closed Risks</h3>
-            <div id="closedRiskList"></div>
-        </div>
-
-        <div id="riskPanel-categories" class="risk-panel hidden">
-            <h3>Risk Categories</h3>
-            <button class="btn-primary" onclick="openCategoryModal()">➕ Add Category</button>
-            <div id="categoryList"></div>
-        </div>
-
-        <div id="riskPanel-heatmap" class="risk-panel hidden">
-            <h3>Risk Heatmap</h3>
-            <div id="heatmapGrid" class="heatmap-grid"></div>
-        </div>
-
-        <div id="riskPanel-review" class="risk-panel hidden">
-            <h3>Risk Review Log</h3>
-            <div id="reviewList"></div>
-        </div>
-
-        <div id="riskPanel-reports" class="risk-panel hidden">
-            <h3>Risk Analytics</h3>
-            <canvas id="riskChart" width="600" height="300"></canvas>
-        </div>
-
-    </div>
-
-
-<!-- POLICY & DOCUMENT CONTROL -->
-<div id="policiesContent" class="content-area" style="display:none;">
-    <h2>Policy & Document Control</h2>
-
-    <!-- TABS -->
-    <div class="policy-tabs">
-        <button class="policy-tab active" data-tab="library">Policy Library</button>
-        <button class="policy-tab" data-tab="upload">New / Upload Policy</button>
-        <button class="policy-tab" data-tab="review">Review Tracker</button>
-        <button class="policy-tab" data-tab="versions">Version History</button>
-        <button class="policy-tab" data-tab="staff">Staff Acknowledgements</button>
-        <button class="policy-tab" data-tab="archived">Archived / Retired</button>
-        <button class="policy-tab" data-tab="reports">Reports</button>
-    </div>
-
-    <!-- CONTENT PANELS -->
-    <div id="policyPanel-library"></div>
-    <div id="policyPanel-upload" class="hidden"></div>
-    <div id="policyPanel-review" class="hidden"></div>
-    <div id="policyPanel-versions" class="hidden"></div>
-    <div id="policyPanel-staff" class="hidden"></div>
-    <div id="policyPanel-archived" class="hidden"></div>
-    <div id="policyPanel-reports" class="hidden"></div>
-
-<div id="policyPreviewModal" class="modal">
-    <div class="modal-content large-modal">
-        <h3 id="policyPreviewTitle"></h3>
-
-        <p><strong>Domain:</strong> <span id="policyPreviewDomain"></span></p>
-        <p><strong>Version:</strong> <span id="policyPreviewVersion"></span></p>
-        <p><strong>Review Date:</strong> <span id="policyPreviewReview"></span></p>
-        <p><strong>Next Review:</strong> <span id="policyPreviewNext"></span></p>
-
-        <iframe id="policyPreviewFrame" class="policy-preview-frame"></iframe>
-
-        <button class="btn-primary" id="policyDownloadBtn">Download File</button>
-        <button class="btn-secondary" onclick="closePolicyPreview()">Close</button>
-    </div>
-</div>
-
-<!-- SAFETY PAGE -->
-<div id="safetyContent" class="content-area" style="display:none;">
-    <h2>Safety Alerts & Learning</h2>
-</div>
-
-<!-- VISITS PAGE -->
-<div id="visitsContent" class="content-area" style="display:none;">
-    <h2>Provider Visits / Annual Reviews</h2>
-</div>
-
-<!-- COMPLAINTS -->
-<div id="complaintsContent" class="content-area" style="display:none;">
-    <h2>Complaints & Feedback</h2>
-</div>
-
-<!-- REPORTS -->
-<div id="reportsContent" class="content-area" style="display:none;">
-    <h2>Reports & Analytics</h2>
-</div>
-
-<!-- ACTIVITY LOG -->
-<div id="activityContent" class="content-area" style="display:none;">
-    <h2>Activity Log</h2>
-</div>
-
-<!-- SETTINGS -->
-<div id="settingsContent" class="content-area" style="display:none;">
-    <h2>Settings / Admin</h2>
-</div>
-
-<!-- HELP -->
-<div id="helpContent" class="content-area" style="display:none;">
-    <h2>Help / Support</h2>
-</div>
-</main>
-
-<!-- =============== ALL MODALS MUST BE INSIDE MAIN, AT THE BOTTOM =============== -->
-
-<!-- INCIDENT MODAL -->
-<div id="incidentModal" class="modal">
-    <div class="modal-content">
-        <h3>Create Incident</h3>
-
-        <input id="inc_title" placeholder="Title" />
-        <textarea id="inc_desc" placeholder="Description"></textarea>
-        <input id="inc_type" placeholder="Event Type" />
-        <input id="inc_class" placeholder="Classification" />
-
-        <label>Status</label>
-        <select id="inc_status">
-            <option value="pending">Pending</option>
-            <option value="open">Open</option>
-            <option value="closed">Closed</option>
-        </select>
-
-        <label>Severity</label>
-        <select id="inc_severity">
-            <option>low</option>
-            <option>medium</option>
-            <option>high</option>
-        </select>
-
-        <button class="btn-secondary" id="closeIncidentBtn">Cancel</button>
-        <button class="btn-primary" id="saveIncidentBtn">Save</button>
-    </div>
-</div>
-
-
-<!-- STAFF MODAL -->
-<div id="staffModal" class="modal">
-    <div class="modal-content">
-        <h3 id="staffModalTitle">Add Staff</h3>
-
-        <input id="staff_name" placeholder="Full Name" />
-        <input id="staff_email" placeholder="Email" />
-        <input id="staff_role" placeholder="Role" />
-        <input id="staff_phone" placeholder="Phone" />
-
-        <label>Status</label>
-        <select id="staff_status">
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-        </select>
-
-        <button class="btn-secondary" id="closeStaffBtn">Cancel</button>
-        <button class="btn-primary" id="saveStaffBtn">Save</button>
-    </div>
-</div>
-
-
-<!-- TASK MODAL -->
-<div id="taskModal" class="modal">
-    <div class="modal-content">
-        <h3 id="taskModalTitle">Add Task</h3>
-
-        <input id="task_title" placeholder="Title" />
-        <textarea id="task_desc" placeholder="Description"></textarea>
-
-        <select id="task_status">
-            <option value="open">Open</option>
-            <option value="in_progress">In Progress</option>
-            <option value="completed">Completed</option>
-        </select>
-
-        <select id="task_priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-
-        <input type="date" id="task_due" />
-        <input type="date" id="task_complete" />
-        <textarea id="task_notes" placeholder="Notes"></textarea>
-
-        <button id="closeTaskBtn" class="btn-secondary">Cancel</button>
-        <button id="saveTaskBtn" class="btn-primary">Save</button>
-    </div>
-</div>
-
-
-<!-- AUDIT MODAL -->
-<div id="auditModal" class="modal">
-    <div class="modal-content">
-        <h3 id="auditModalTitle">Add Audit</h3>
-
-        <input id="audit_title" placeholder="Audit Title" />
-        <input id="audit_category" placeholder="Category" />
-        <textarea id="audit_desc" placeholder="Description"></textarea>
-
-        <label>Scheduled Date</label>
-        <input type="date" id="audit_date" />
-
-        <label>Status</label>
-        <select id="audit_status">
-            <option value="planned">Planned</option>
-            <option value="ongoing">Ongoing</option>
-            <option value="completed">Completed</option>
-        </select>
-
-        <label>Assigned To</label>
-        <select id="audit_assigned"></select>
-
-        <button class="btn-secondary" id="closeAuditBtn">Cancel</button>
-        <button class="btn-primary" id="saveAuditBtn">Save</button>
-    </div>
-</div>
-
-<!-- RISK MODAL -->
-<div id="riskModal" class="modal">
-    <div class="modal-content">
-        <h3 id="riskModalTitle">Add Risk</h3>
-
-        <input id="risk_title" placeholder="Risk Title" />
-
-        <textarea id="risk_desc" placeholder="Description"></textarea>
-
-        <label>Likelihood (1–5)</label>
-        <select id="risk_likelihood">
-            <option value="1">1 - Rare</option>
-            <option value="2">2 - Unlikely</option>
-            <option value="3">3 - Possible</option>
-            <option value="4">4 - Likely</option>
-            <option value="5">5 - Certain</option>
-        </select>
-
-        <label>Impact (1–5)</label>
-        <select id="risk_impact">
-            <option value="1">1 - Minor</option>
-            <option value="2">2 - Moderate</option>
-            <option value="3">3 - Significant</option>
-            <option value="4">4 - Major</option>
-            <option value="5">5 - Catastrophic</option>
-        </select>
-
-        <label>Status</label>
-        <select id="risk_status">
-            <option value="open">Open</option>
-            <option value="in_progress">In Progress</option>
-            <option value="closed">Closed</option>
-        </select>
-
-        <div class="modal-buttons">
-            <button class="btn-secondary" id="closeRiskBtn">Cancel</button>
-            <button class="btn-primary" id="saveRiskBtn">Save Risk</button>
-        </div>
-    </div>
-</div>
-
-<!-- CLOSE MAIN -->
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="app.js"></script>
-
+    <script src="landing.js"></script>
 </body>
 </html>

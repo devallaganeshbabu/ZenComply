@@ -289,7 +289,7 @@ async function handleLogin(e) {
     const password = document.getElementById("password").value.trim();
 
     try {
-        const res = await fetch(`${API_BASE_URL}/auth/login`, {
+        const res = await fetch("https://zencomply-backend.onrender.com/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
