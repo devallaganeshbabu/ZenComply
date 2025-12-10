@@ -440,10 +440,8 @@ function switchPage(e) {
     if (pageId === "auditsContent") loadAudits();
     if (pageId === "riskContent") loadRisks();
     if (pageId === "safetyContent") {
-    setTimeout(() => {
-        loadSafetyAlerts();
-    }, 150); // Small delay ensures DOM is rendered
-    }
+    waitForElement("#safetyAlertsBody", loadSafetyAlerts);
+}
 }
 
 function closeAllModals() {
@@ -1647,6 +1645,13 @@ function renderRiskChart() {
 
 // SAFETY & ALERTS
 
+
+const token = localStorage.getItem("authToken");
+if (!token) {
+    console.error("No token found. Redirecting to login.");
+    window.location.href = "login.html";
+    return;
+}
 async function loadSafetyAlerts() {
     const tbody = document.getElementById("safetyAlertsBody");
     if (!tbody) {
@@ -1791,4 +1796,16 @@ async function saveLessonLearned() {
 
     lessonsModal.style.display = "none";
     showToast("Lessons learned saved!");
+}
+
+function waitForElement(selector, callback) {
+    const el = document.querySelector(selector);
+
+    if (el) {
+        callback();
+        return;
+    }
+
+    // Try again every 100ms until found
+    setTimeout(() => waitForElement(selector, callback), 100);
 }
