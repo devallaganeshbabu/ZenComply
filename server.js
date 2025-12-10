@@ -171,7 +171,26 @@ app.get("/api/auth/validate", authenticateToken, async (req, res) => {
     }
 });
 
+async function apiPost(url, data) {
+    try {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || "Server error");
+        }
+
+        return res.json();
+    } catch (e) {
+        console.error("API Error:", e);
+        alert("Server not reachable. Please try again.");
+        return null;
+    }
+}
 //==============================
 // COMPILANCE 
 //==============================
