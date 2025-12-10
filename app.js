@@ -1648,15 +1648,12 @@ function renderRiskChart() {
 // SAFETY & ALERTS
 
 async function loadSafetyAlerts() {
-
-    // ✅ STEP 1: Make sure the table body exists before using it
     const tbody = document.getElementById("safetyAlertsBody");
     if (!tbody) {
-        console.warn("⚠️ safetyAlertsBody not found — page not ready yet.");
-        return; // ⛔ Prevents the TypeError
+        console.warn("⚠️ safetyAlertsBody not found in DOM.");
+        return;
     }
 
-    // Clear existing rows
     tbody.innerHTML = "";
 
     try {
@@ -1664,21 +1661,38 @@ async function loadSafetyAlerts() {
 
         if (!res.ok) {
             console.error("Failed to load safety alerts:", res.status);
+            if (res.status === 401 || res.status === 403) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align:center;">
+                            You are not authorized to view safety alerts.
+                        </td>
+                    </tr>`;
+            } else {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align:center;">
+                            Error loading safety alerts (${res.status}).
+                        </td>
+                    </tr>`;
+            }
             return;
         }
 
         const data = await res.json();
 
-        // If no alerts exist
-        if (!data.length) {
-            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No safety alerts found</td></tr>`;
+        if (!Array.isArray(data) || data.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="8" style="text-align:center;">
+                        No safety alerts found.
+                    </td>
+                </tr>`;
             return;
         }
 
-        // Populate table
         data.forEach(alert => {
             const row = document.createElement("tr");
-
             row.innerHTML = `
                 <td>${alert.id}</td>
                 <td>${alert.title}</td>
@@ -1692,12 +1706,17 @@ async function loadSafetyAlerts() {
                     <button class="btn-small" onclick="openLessonsModal(${alert.id})">Lessons</button>
                 </td>
             `;
-
             tbody.appendChild(row);
         });
 
     } catch (err) {
         console.error("Error loading safety alerts:", err);
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="8" style="text-align:center;">
+                    Error loading safety alerts.
+                </td>
+            </tr>`;
     }
 }
 
