@@ -355,17 +355,11 @@ async function handleLogin(e) {
 
         // Save token + user
         localStorage.setItem("authToken", data.token);
+        localStorage.setItem("currentUser", JSON.stringify(data.user));
         currentUser = data.user;
 
-        // Show dashboard UI
-        showDashboard();
-
-        // Load ONLY dashboard on login
-        setTimeout(() => {
-            loadDashboard();
-        }, 100);
-
-        showToast("Welcome!");
+        // ✅ Redirect to dashboard page (index.html)
+        window.location.href = "index.html";
 
     } catch (err) {
         console.error("Login error:", err);
