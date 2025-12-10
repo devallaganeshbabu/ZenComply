@@ -1646,12 +1646,7 @@ function renderRiskChart() {
 // SAFETY & ALERTS
 
 
-const token = localStorage.getItem("authToken");
-if (!token) {
-    console.error("No token found. Redirecting to login.");
-    window.location.href = "login.html";
-    return;
-}
+
 async function loadSafetyAlerts() {
     const tbody = document.getElementById("safetyAlertsBody");
     if (!tbody) {
