@@ -1644,7 +1644,7 @@ async function loadSafetyAlerts() {
     const res = await fetch(`${API_BASE_URL}/safety-alerts`, authHeader());
     const data = await res.json();
 
-    const tbody = document.querySelector("#safetyAlertsTable tbody");
+    const tbody = document.getElementById("safetyAlertsBody");
     tbody.innerHTML = "";
 
     data.forEach(alert => {
