@@ -436,6 +436,7 @@ function switchPage(e) {
     if (pageId === "complianceContent") loadComplianceDashboard();
     if (pageId === "auditsContent") loadAudits();
     if (pageId === "riskContent") loadRisks();
+    if (pageId === "safetyContent") loadSafetyAlerts();
 }
 
 function closeAllModals() {
