@@ -1578,3 +1578,219 @@ COMPILANCE
 .risk-badge.red { background: #d00000; }
 .risk-badge.orange { background: #e69500; }
 .risk-badge.green { background: #22aa55; }
+
+
+/* ============================================================
+   SAFETY ALERTS & LEARNING MODULE
+============================================================ */
+
+#safetyContent {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Title */
+#safetyContent .page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #132238;
+}
+
+/* New Safety Alert Button */
+#newSafetyAlertBtn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #0066FF, #004bcc);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 102, 255, 0.25);
+    transition: 0.25s ease;
+    margin-bottom: 18px;
+}
+
+#newSafetyAlertBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,102,255,0.35);
+}
+
+/* Table Styling (Matches Incidents Table) */
+#safetyAlertsTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#safetyAlertsTable th {
+    background: #f7f9fb;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: #404b5a;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#safetyAlertsTable td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #333;
+}
+
+#safetyAlertsTable tr:hover {
+    background: #eef5ff;
+}
+
+/* Status Badges */
+.status-badge-sa {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+
+.sa-open { background: #2ecc71; }
+.sa-review { background: #f1c40f; color: #222; }
+.sa-closed { background: #e74c3c; }
+
+/* Category Tags */
+.category-tag {
+    padding: 5px 10px;
+    background: #eef2ff;
+    color: #3b50db;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* ------------------------------------------------------------
+   ACTION BUTTONS
+------------------------------------------------------------- */
+
+.btn-small {
+    background: #e9e9e9;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-small:hover {
+    background: #d3d3d3;
+}
+
+.btn-review {
+    background: #3498db !important;
+    color: white;
+}
+
+.btn-lessons {
+    background: #8e44ad !important;
+    color: white;
+}
+
+/* ------------------------------------------------------------
+   MODALS FOR SAFETY ALERTS
+------------------------------------------------------------- */
+
+.modal-content {
+    width: 430px;
+    max-width: 95%;
+    border-radius: 20px;
+    padding: 24px;
+    background: white;
+}
+
+.modal-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    border-radius: 12px;
+    border: 2px solid #e6e6e6;
+    padding: 12px;
+    font-size: 15px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+    border-color: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0,102,255,0.15);
+}
+
+/* Save Buttons */
+.btn-modal-save {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #0066FF, #004bcc);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-modal-save:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Close Button */
+.btn-modal-close {
+    width: 100%;
+    padding: 12px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    transition: 0.2s ease;
+}
+
+.btn-modal-close:hover {
+    background: #e6e6e6;
+}
+
+/* ------------------------------------------------------------
+   LESSONS MODAL
+------------------------------------------------------------- */
+
+#lessonsModal .modal-content {
+    border-left: 6px solid #8e44ad;
+}
+
+#lessonsModal h3 {
+    color: #8e44ad;
+}
+
+/* ------------------------------------------------------------
+   REVIEW MODAL
+------------------------------------------------------------- */
+
+#reviewSafetyModal .modal-content {
+    border-left: 6px solid #3498db;
+}
+
+#reviewSafetyModal h3 {
+    color: #3498db;
+}
