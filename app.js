@@ -340,26 +340,35 @@ async function handleLogin(e) {
     const password = document.getElementById("password").value.trim();
 
     try {
-        const res = await fetch(`${API_BASE_URL}/auth/login`,{
+        const res = await fetch(`${API_BASE_URL}/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
         });
 
-        if (!res.ok) return alert("Invalid username or password");
+        if (!res.ok) {
+            alert("Invalid username or password");
+            return;
+        }
 
         const data = await res.json();
+
+        // Save token + user
         localStorage.setItem("authToken", data.token);
         currentUser = data.user;
 
+        // Show dashboard UI
         showDashboard();
-        loadDashboard();
-        loadIncidents();
-        loadStaff();
-        loadTasks();
-        showToast("");
+
+        // Load ONLY dashboard on login
+        setTimeout(() => {
+            loadDashboard();
+        }, 100);
+
+        showToast("Welcome!");
 
     } catch (err) {
+        console.error("Login error:", err);
         alert("Login error");
     }
 }
@@ -436,7 +445,11 @@ function switchPage(e) {
     if (pageId === "complianceContent") loadComplianceDashboard();
     if (pageId === "auditsContent") loadAudits();
     if (pageId === "riskContent") loadRisks();
-    if (pageId === "safetyContent") loadSafetyAlerts();
+    if (pageId === "safetyContent") {
+    setTimeout(() => {
+        loadSafetyAlerts();
+    }, 150); // Small delay ensures DOM is rendered
+    }
 }
 
 function closeAllModals() {
@@ -1641,32 +1654,57 @@ function renderRiskChart() {
 // SAFETY & ALERTS
 
 async function loadSafetyAlerts() {
-    const res = await fetch(`${API_BASE_URL}/safety-alerts`, authHeader());
-    const data = await res.json();
 
+    // ✅ STEP 1: Make sure the table body exists before using it
     const tbody = document.getElementById("safetyAlertsBody");
+    if (!tbody) {
+        console.warn("⚠️ safetyAlertsBody not found — page not ready yet.");
+        return; // ⛔ Prevents the TypeError
+    }
+
+    // Clear existing rows
     tbody.innerHTML = "";
 
-    data.forEach(alert => {
-        const row = document.createElement("tr");
+    try {
+        const res = await fetch(`${API_BASE_URL}/safety-alerts`, authHeader());
 
-        row.innerHTML = `
-            <td>${alert.id}</td>
-            <td>${alert.title}</td>
-            <td>${alert.category}</td>
-            <td>${alert.severity}</td>
-            <td>${alert.status}</td>
-            <td>${alert.reported_by}</td>
-            <td>${alert.created_at}</td>
+        if (!res.ok) {
+            console.error("Failed to load safety alerts:", res.status);
+            return;
+        }
 
-            <td>
-                <button class="btn-small" onclick="openReviewModal(${alert.id})">Review</button>
-                <button class="btn-small" onclick="openLessonsModal(${alert.id})">Lessons</button>
-            </td>
-        `;
+        const data = await res.json();
 
-        tbody.appendChild(row);
-    });
+        // If no alerts exist
+        if (!data.length) {
+            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No safety alerts found</td></tr>`;
+            return;
+        }
+
+        // Populate table
+        data.forEach(alert => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${alert.id}</td>
+                <td>${alert.title}</td>
+                <td>${alert.category}</td>
+                <td>${alert.severity}</td>
+                <td>${alert.status}</td>
+                <td>${alert.reported_by}</td>
+                <td>${alert.created_at}</td>
+                <td>
+                    <button class="btn-small" onclick="openReviewModal(${alert.id})">Review</button>
+                    <button class="btn-small" onclick="openLessonsModal(${alert.id})">Lessons</button>
+                </td>
+            `;
+
+            tbody.appendChild(row);
+        });
+
+    } catch (err) {
+        console.error("Error loading safety alerts:", err);
+    }
 }
 
 async function saveSafetyAlert() {
