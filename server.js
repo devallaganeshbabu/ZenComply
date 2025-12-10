@@ -770,6 +770,61 @@ app.post("/api/risk-categories", authenticateToken, async (req, res) => {
     res.json({ success: true });
 });
 
+// =====================================================
+// SAFETY ALERTS — CREATE
+// =====================================================
+app.post("/api/safety-alerts", authenticateToken, async (req, res) => {
+    const { title, description, category, severity } = req.body;
+
+    await pool.query(
+        `INSERT INTO safety_alerts (title, description, category, severity, reported_by)
+         VALUES (?, ?, ?, ?, ?)`,
+        [title, description, category, severity, req.user.id]
+    );
+
+    res.json({ message: "Alert created" });
+});
+
+app.get("/api/safety-alerts", authenticateToken, async (req, res) => {
+    const [rows] = await pool.query(`
+        SELECT a.*, u.username AS reported_by
+        FROM safety_alerts a
+        LEFT JOIN users u ON a.reported_by = u.id
+        ORDER BY a.id DESC
+    `);
+
+    res.json(rows);
+});
+
+app.post("/api/safety-alerts/:id/review", authenticateToken, async (req, res) => {
+    const { notes, improvement, status } = req.body;
+
+    await pool.query(
+        `INSERT INTO safety_reviews (alert_id, notes, improvement, status)
+         VALUES (?, ?, ?, ?)`,
+        [req.params.id, notes, improvement, status]
+    );
+
+    await pool.query(
+        `UPDATE safety_alerts SET status=? WHERE id=?`,
+        [status, req.params.id]
+    );
+
+    res.json({ message: "Review saved" });
+});
+
+app.post("/api/safety-alerts/:id/lessons", authenticateToken, async (req, res) => {
+    const { root, learned, addToLibrary } = req.body;
+
+    await pool.query(
+        `INSERT INTO safety_lessons (alert_id, root, learned, added_to_library)
+         VALUES (?, ?, ?, ?)`,
+        [req.params.id, root, learned, addToLibrary]
+    );
+
+    res.json({ message: "Lessons saved" });
+});
+
 
 // =============================
 // START SERVER

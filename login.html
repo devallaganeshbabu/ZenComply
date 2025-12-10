@@ -538,9 +538,105 @@
     </div>
 </div>
 
-<!-- SAFETY PAGE -->
+<!-- ========================= SAFETY ALERTS & LEARNING ========================= -->
 <div id="safetyContent" class="content-area" style="display:none;">
-    <h2>Safety Alerts & Learning</h2>
+
+    <h2 class="page-title">🚨 Safety Alerts & Learning</h2>
+
+    <button id="newSafetyAlertBtn" class="btn-primary">+ New Safety Alert</button>
+
+    <table class="data-table" id="safetyAlertsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Alert Title</th>
+                <th>Category</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Reported By</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div id="safetyAlertModal" class="modal">
+    <div class="modal-content">
+
+        <h3>New Safety Alert</h3>
+
+        <label>Title</label>
+        <input id="sa_title" type="text">
+
+        <label>Description</label>
+        <textarea id="sa_description"></textarea>
+
+        <label>Category</label>
+        <select id="sa_category">
+            <option value="Infection">Infection</option>
+            <option value="Equipment">Equipment</option>
+            <option value="Medication">Medication</option>
+            <option value="Hazard">Hazard</option>
+        </select>
+
+        <label>Severity</label>
+        <select id="sa_severity">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <button id="saveSafetyAlertBtn" class="btn-primary">Save Alert</button>
+        <button class="btn-secondary" id="closeSafetyAlertBtn">Close</button>
+    </div>
+</div>
+
+<div id="reviewSafetyModal" class="modal">
+    <div class="modal-content">
+
+        <h3>Review Safety Alert</h3>
+
+        <label>Review Notes</label>
+        <textarea id="review_notes"></textarea>
+
+        <label>Assign Improvement Plan</label>
+        <input id="review_improvement" type="text" placeholder="e.g., Train staff on medication labeling">
+
+        <label>Status</label>
+        <select id="review_status">
+            <option value="Open">Open</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Closed">Closed</option>
+        </select>
+
+        <button id="saveReviewBtn" class="btn-primary">Save Review</button>
+        <button class="btn-secondary" id="closeReviewModalBtn">Close</button>
+    </div>
+</div>
+        <div id="lessonsModal" class="modal">
+    <div class="modal-content">
+
+        <h3>Lessons Learned</h3>
+
+        <label>Root Cause</label>
+        <textarea id="ll_root"></textarea>
+
+        <label>What Was Learned?</label>
+        <textarea id="ll_learned"></textarea>
+
+        <label>Add to Learning Library?</label>
+        <select id="ll_add">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button id="saveLessonBtn" class="btn-primary">Save</button>
+        <button class="btn-secondary" id="closeLessonsBtn">Close</button>
+
+    </div>
+</div>
+        </tbody>
+    </table>
+
 </div>
 
 <!-- VISITS PAGE -->

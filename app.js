@@ -52,6 +52,14 @@ let loginScreen, mainDashboard, loginForm, logoutBtn;
 let newIncidentBtn, saveIncidentBtn, closeIncidentBtn, incidentModal;
 let newStaffBtn, saveStaffBtn, closeStaffBtn, staffModal;
 let newTaskBtn, saveTaskBtn, closeTaskBtn, taskModal;
+let newSafetyAlertBtn, saveSafetyAlertBtn, closeSafetyAlertBtn;
+let safetyAlertModal;
+
+let reviewSafetyModal, saveReviewBtn, closeReviewModalBtn;
+
+let lessonsModal, saveLessonBtn, closeLessonsBtn;
+
+let currentSafetyId = null;
 let toastBox, navItems;
 
 function cacheDOM() {
@@ -100,6 +108,20 @@ function cacheDOM() {
     saveRiskBtn = document.getElementById("saveRiskBtn");
     closeRiskBtn = document.getElementById("closeRiskBtn");
     riskModal = document.getElementById("riskModal");
+
+    // SAFETY & ALERTS
+    newSafetyAlertBtn = document.getElementById("newSafetyAlertBtn");
+    saveSafetyAlertBtn = document.getElementById("saveSafetyAlertBtn");
+    closeSafetyAlertBtn = document.getElementById("closeSafetyAlertBtn");
+    safetyAlertModal = document.getElementById("safetyAlertModal");
+
+    reviewSafetyModal = document.getElementById("reviewSafetyModal");
+    saveReviewBtn = document.getElementById("saveReviewBtn");
+    closeReviewModalBtn = document.getElementById("closeReviewModalBtn");
+
+    lessonsModal = document.getElementById("lessonsModal");
+    saveLessonBtn = document.getElementById("saveLessonBtn");
+    closeLessonsBtn = document.getElementById("closeLessonsBtn");
 }
 
 // ===============================
@@ -275,6 +297,35 @@ document.querySelectorAll(".risk-tab").forEach(tab => {
             closeRiskBtn.addEventListener("click", () => {
                 riskModal.style.display = "none";
             });
+
+
+
+        // SAFETY & ALERTS
+
+
+        if (newSafetyAlertBtn) newSafetyAlertBtn.addEventListener("click", () => {
+        safetyAlertModal.style.display = "block";
+        });
+
+        if (closeSafetyAlertBtn) closeSafetyAlertBtn.addEventListener("click", () => {
+            safetyAlertModal.style.display = "none";
+        });
+
+        if (saveSafetyAlertBtn) saveSafetyAlertBtn.addEventListener("click", saveSafetyAlert);
+
+        // review modal
+        if (closeReviewModalBtn) closeReviewModalBtn.addEventListener("click", () => {
+            reviewSafetyModal.style.display = "none";
+        });
+
+        if (saveReviewBtn) saveReviewBtn.addEventListener("click", saveSafetyReview);
+
+        // lessons learned modal
+        if (closeLessonsBtn) closeLessonsBtn.addEventListener("click", () => {
+            lessonsModal.style.display = "none";
+        });
+
+        if (saveLessonBtn) saveLessonBtn.addEventListener("click", saveLessonLearned);
     // NAV
     navItems.forEach((item) => item.addEventListener("click", switchPage));
 }
@@ -1586,5 +1637,106 @@ function renderRiskChart() {
     });
 }
 
+// SAFETY & ALERTS
 
+async function loadSafetyAlerts() {
+    const res = await fetch(`${API_BASE_URL}/safety-alerts`, authHeader());
+    const data = await res.json();
 
+    const tbody = document.querySelector("#safetyAlertsTable tbody");
+    tbody.innerHTML = "";
+
+    data.forEach(alert => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${alert.id}</td>
+            <td>${alert.title}</td>
+            <td>${alert.category}</td>
+            <td>${alert.severity}</td>
+            <td>${alert.status}</td>
+            <td>${alert.reported_by}</td>
+            <td>${alert.created_at}</td>
+
+            <td>
+                <button class="btn-small" onclick="openReviewModal(${alert.id})">Review</button>
+                <button class="btn-small" onclick="openLessonsModal(${alert.id})">Lessons</button>
+            </td>
+        `;
+
+        tbody.appendChild(row);
+    });
+}
+
+async function saveSafetyAlert() {
+    const body = {
+        title: sa_title.value,
+        description: sa_description.value,
+        category: sa_category.value,
+        severity: sa_severity.value
+    };
+
+    await fetch(`${API_BASE_URL}/safety-alerts`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            ...authHeader().headers
+        },
+        body: JSON.stringify(body)
+    });
+
+    safetyAlertModal.style.display = "none";
+    loadSafetyAlerts();
+    showToast("Safety alert created!");
+}
+
+function openReviewModal(id) {
+    currentSafetyId = id;
+    reviewSafetyModal.style.display = "block";
+}
+
+async function saveSafetyReview() {
+    const body = {
+        notes: review_notes.value,
+        improvement: review_improvement.value,
+        status: review_status.value
+    };
+
+    await fetch(`${API_BASE_URL}/safety-alerts/${currentSafetyId}/review`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            ...authHeader().headers
+        },
+        body: JSON.stringify(body)
+    });
+
+    reviewSafetyModal.style.display = "none";
+    loadSafetyAlerts();
+    showToast("Review updated!");
+}
+
+function openLessonsModal(id) {
+    currentSafetyId = id;
+    lessonsModal.style.display = "block";
+}
+
+async function saveLessonLearned() {
+    const body = {
+        root: ll_root.value,
+        learned: ll_learned.value,
+        addToLibrary: ll_add.value
+    };
+
+    await fetch(`${API_BASE_URL}/safety-alerts/${currentSafetyId}/lessons`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            ...authHeader().headers
+        },
+        body: JSON.stringify(body)
+    });
+
+    lessonsModal.style.display = "none";
+    showToast("Lessons learned saved!");
+}
