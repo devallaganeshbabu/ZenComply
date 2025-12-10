@@ -138,6 +138,22 @@ function showToast(msg) {
 // ===============================
 function checkAuth() {
     const token = localStorage.getItem("authToken");
+
+        // If NO token → always redirect to login.html
+    if (!token) {
+        if (!window.location.pathname.endsWith("login.html")) {
+            window.location.href = "login.html";
+        }
+        return;
+    }
+
+    // If token EXISTS → always redirect to index.html
+    if (window.location.pathname.endsWith("login.html")) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    validateToken();
     if (token) validateToken();
 }
 
