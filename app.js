@@ -138,7 +138,6 @@ function showToast(msg) {
 // ===============================
 function checkAuth() {
     const token = localStorage.getItem("authToken");
-    validateToken();
     if (token) validateToken();
 }
 
