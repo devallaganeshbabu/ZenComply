@@ -359,7 +359,7 @@ async function handleLogin(e) {
         currentUser = data.user;
 
         // ✅ Redirect to dashboard page (index.html)
-        window.location.href = "index.html";
+        window.location.href = "login.html";
 
     } catch (err) {
         console.error("Login error:", err);
