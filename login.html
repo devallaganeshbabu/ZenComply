@@ -540,28 +540,30 @@
 
 <!-- ========================= SAFETY ALERTS & LEARNING ========================= -->
 <div id="safetyContent" class="content-area" style="display:none;">
+    <h2>Safety Alerts & Learning</h2>
 
-    <h2 class="page-title">🚨 Safety Alerts & Learning</h2>
+    <button id="newSafetyAlertBtn" class="btn-primary">New Alert</button>
 
-    <button id="newSafetyAlertBtn" class="btn-primary">+ New Safety Alert</button>
-
-    <table class="data-table" id="safetyAlertsTable">
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Alert Title</th>
+                <th>Title</th>
                 <th>Category</th>
                 <th>Severity</th>
                 <th>Status</th>
                 <th>Reported By</th>
-                <th>Date</th>
+                <th>Created At</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="safetyAlertsBody"></tbody>
-    </table>
 
+        <!-- THIS IS WHAT YOUR JS IS LOOKING FOR -->
+        <tbody id="safetyAlertsBody">
+        </tbody>
+    </table>
 </div>
+
 
 <!-- VISITS PAGE -->
 <div id="visitsContent" class="content-area" style="display:none;">
